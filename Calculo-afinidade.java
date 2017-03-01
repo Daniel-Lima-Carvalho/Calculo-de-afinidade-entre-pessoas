@@ -6,6 +6,11 @@ import java.util.Scanner;
 
 public class Distancia_entre_pontos {
 
+    static float porcentagem(float dist){
+	   int porcen = (float) ((dist*100)/22.360680);
+            return 100 - porcen;
+    }
+	
     static float calcdist(int pro[], int pes[][],int cont)
     {
 	float raiz;
@@ -51,7 +56,6 @@ public class Distancia_entre_pontos {
 	{
 		System.out.println("\nDigite sua matricula: ");
 		matri[cont] = teclado.nextInt();
-	
 		System.out.println("\nDigite seu nome: ");
 		nome[cont]  = teclado.next();
 		
@@ -61,10 +65,8 @@ public class Distancia_entre_pontos {
                     r_pes[cont][i] = validar(); 
                 }
 		
-                dist = calcdist(r_pro,r_pes,cont);
-	
-		porcen = (float) ((dist*100)/22.360680);
-		por_fi = 100 - porcen;
+               	dist = calcdist(r_pro,r_pes,cont);
+		por_fi = porcentagem(float dist);
 		System.out.printf("Sua AFINIDADE com o programador e de: %.2f %% \n",por_fi);
 		porc_pessoas[cont] = por_fi;
 	}
